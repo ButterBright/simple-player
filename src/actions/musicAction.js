@@ -22,13 +22,14 @@ export const loadDetail = (id) => async (dispatch) => {
     try {
         const url = await axios.get(`${baseUrl}/song/url?id=${id}`)
         const info = await axios.get(`${baseUrl}/song/detail?ids=${id}`)
-        const isAvailable = await axios.get(`${baseUrl}/check/music?id=${id}`)
+        // const isAvailable = await axios.get(`${baseUrl}/check/music?id=${id}`)
         dispatch({
             type: "FETCH_DETAIL",
             payload: {
                 url: url.data.data,
                 info: info.data.songs,
-                isAvailable: isAvailable.data,
+                // isAvailable: isAvailable.data,
+                isAvailable: null
             }
         })
     } catch (err) {
