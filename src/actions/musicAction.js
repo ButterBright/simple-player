@@ -5,7 +5,7 @@ const baseUrl = "https://neteasecloudapi.herokuapp.com"
 // 获取新歌动作
 export const loadMusic = () => async (dispatch) => {
     try {
-        const newSongs = await axios.get("${baseUrl}/top/song?type=96")
+        const newSongs = await axios.get(`${baseUrl}/top/song?type=96`)
         dispatch({
             type: "FETCH_SONGS",
             payload: {
