@@ -1,0 +1,14 @@
+.nav {
+    min-height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 8rem;
+    .icon {
+        padding-top: 1rem;
+    }
+    h2 {
+        font-family: 'Major Mono Display', monospace;
+    }
+    padding-top: 1.5rem;
+}
