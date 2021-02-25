@@ -1,9 +1,11 @@
 import axios from "axios"
 
+const baseUrl = "https://neteasecloudapi.herokuapp.com"
+
 // 获取新歌动作
 export const loadMusic = () => async (dispatch) => {
     try {
-        const newSongs = await axios.get("http://localhost:3000/top/song?type=96")
+        const newSongs = await axios.get("${baseUrl}/top/song?type=96")
         dispatch({
             type: "FETCH_SONGS",
             payload: {
@@ -18,9 +20,9 @@ export const loadMusic = () => async (dispatch) => {
 // 获取歌曲具体信息动作
 export const loadDetail = (id) => async (dispatch) => {
     try {
-        const url = await axios.get(`http://localhost:3000/song/url?id=${id}`)
-        const info = await axios.get(`http://localhost:3000/song/detail?ids=${id}`)
-        const isAvailable = await axios.get(`http://localhost:3000/check/music?id=${id}`)
+        const url = await axios.get(`${baseUrl}/song/url?id=${id}`)
+        const info = await axios.get(`${baseUrl}/song/detail?ids=${id}`)
+        const isAvailable = await axios.get(`${baseUrl}/check/music?id=${id}`)
         dispatch({
             type: "FETCH_DETAIL",
             payload: {
@@ -36,9 +38,9 @@ export const loadDetail = (id) => async (dispatch) => {
 
 // 搜索音乐或歌手的动作
 export const searchMusic = (keyword) => async (dispatch) => {
-    // const search = await axios.get(`http://localhost:3000/search?keywords=${keyword}`)
+    // const search = await axios.get(`${baseUrl}/search?keywords=${keyword}`)
     try {
-        const search = await axios.get(`http://localhost:3000/cloudsearch?keywords=${keyword}`)
+        const search = await axios.get(`${baseUrl}/cloudsearch?keywords=${keyword}`)
         dispatch({
             type:"SEARCH",
             payload: {
